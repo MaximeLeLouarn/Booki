@@ -39,6 +39,11 @@ p {
     padding: 0;
     margin: 0;
 }
+.invisible {
+    position: relative;
+    bottom: 80px;
+    opacity: 0;
+}
 .fa-star {
     color: var(--main-color);
 }
@@ -105,23 +110,12 @@ p {
 }
 .navigation .menu .linkToSections {
     margin: 0 0 0 48px;
-    transition: all 1s;
-    position: relative;
+    padding-top: 8px;
 }
-.menu .linkToSections:hover::before {
-    display: block;
-    padding-top: 4px;
-    content: '';
-    width: 0;
+.menu .linkToSections:hover {
     border-top: var(--main-color) solid 2px;
-    animation: growBar 0.25s linear;
-    animation-fill-mode: forwards;
+    color: var(--main-color);
 }
-@keyframes growBar {
-    100% {
-      width: 100%;
-    }
-  }
 
 
 /* Main, headline (catchphrase, form, filter, information) */
@@ -186,8 +180,8 @@ p {
     transition: all 0.25s;
 }
 .researchButton:hover{
-    background-color: #0091ff !important;
-    border: #0091ff solid 1px !important;
+    background-color: rgba(0, 100, 250, 0.64) !important;
+    border: rgb(0, 101, 252, 0.64) solid 1px !important;
     color: #e6dde1 !important;
     cursor: pointer;
 }
@@ -318,15 +312,27 @@ p {
     justify-content: space-between;
     margin: 16px auto;
 }
-.hebergementsCards .cardRow {
+.hebergementsCards {
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     justify-content: space-between;
-    max-width: 811px;
-    min-width: auto;
 }
 
 /* general of cards */
+.hebergementsCards a {
+    width: 30%;
+    height: 200px;
+    margin-top: 24px;
+}
+.hebergementsCards .card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px;
+    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
+}
+
 .populairesCards .card {
     display: flex;
     margin-top: 24px;
@@ -336,47 +342,15 @@ p {
     width: 100%;
     filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
 }
-.hebergementsCards .cardRow .card {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: 160px;
-    height: 184px;
-    margin-top: 24px;
-    background-color: white;
-    border-radius: 20px;
-    padding: 5px;
-    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
-}
-@media screen and (max-width: 940px) {
-    .hebergementsCards .cardRow .card {
-        width: 200px;}
-}
-@media screen and (min-width: 940px) and (max-width: 1024px) {
-    .hebergementsCards .cardRow .card {
-        width: 240px;}
-}
-@media screen and (min-width: 1200px){
-    .hebergementsCards .cardRow .card {
-        width: 200px;}
-}
-@media screen and (min-width: 1350px){
-    .hebergementsCards .cardRow .card {
-        width: 232px;
-        height: 192px;
-    }
-}
 
 /* Images */
 .hebergementsCards .card img {
-    position: relative;
     object-fit: cover;
     width: 100%;
-    height: 50%;
+    height: 120px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
-
 
 .populairesCards .card img {
     object-fit: cover;
@@ -458,24 +432,22 @@ p {
 .activitesCards {
     display: flex;
     flex-direction: row;
-    height: 440px;
+    justify-content: space-between;
     width: 100%;
+    height: 440px;
     box-sizing: border-box;
 }
-@media screen and (max-width: 1390px) {
-    .activitesCards {
-        overflow-x: scroll;
-        overflow-y: hidden;
-    }
+.activitesCards a {
+        width: 22%;
+        display: flex;
 }
 .activitesCards .card {
     height: 100%;
     display: flex;
+    width: auto;
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
-    width: 296px;
-    margin: 0 24px 0 0;
     background-color: white;
     border-radius: 20px;
     filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
@@ -483,6 +455,7 @@ p {
 .activitesCards .card img {
     object-fit: cover;
     height: 85%;
+    width: 100%;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
@@ -510,6 +483,9 @@ p {
 .footerLinks p {
     padding-top: 8px;
     margin-left: 16px;
+}
+.footerLinks p:hover {
+    text-decoration: underline;
 }
 
 
